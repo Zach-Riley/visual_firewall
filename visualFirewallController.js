@@ -9,6 +9,7 @@ function visualFirewallController($scope, firewallVM) {
         Json: null,
         testJson: null,
         treeData: null,
+        directionAck: null,
         addIpToWhitelist: addIpToWhitelist,
         removeFromWhitelist: removeFromWhitelist
 
@@ -64,10 +65,11 @@ function visualFirewallController($scope, firewallVM) {
         vm.whiteList.forEach(function (ip) {
             vm.treeData.children.forEach(function (computerOnNetwork) {
                 computerOnNetwork.children.forEach(function (directionAcks) {
+                    vm.directionAck = directionAcks;
                     directionAcks.children.forEach(function (childIP){
                         if (ip == childIP.name) {
-                            index = vm.treeData.children.indexOf(childIP);
-                            vm.treeData.children.splice(index, 1);
+                            index = vm.directionAck.children.indexOf(childIP);
+                            vm.directionAck.children.splice(index, 1);
                         }
                     });
                 });

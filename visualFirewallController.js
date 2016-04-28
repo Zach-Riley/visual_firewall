@@ -62,12 +62,15 @@ function visualFirewallController($scope, firewallVM) {
         var index = null;
 
         vm.whiteList.forEach(function (ip) {
-            vm.treeData.children.forEach(function (childIP) {
-                if (ip == childIP.name) {
-                    debugger;
-                    index = vm.treeData.children.indexOf(childIP);
-                    vm.treeData.children.splice(index, 1);
-                }
+            vm.treeData.children.forEach(function (computerOnNetwork) {
+                computerOnNetwork.children.forEach(function (directionAcks) {
+                    directionAcks.children.forEach(function (childIP){
+                        if (ip == childIP.name) {
+                            index = vm.treeData.children.indexOf(childIP);
+                            vm.treeData.children.splice(index, 1);
+                        }
+                    });
+                });
             });
         });
         // Calculate total nodes, max label length
@@ -362,13 +365,16 @@ function visualFirewallController($scope, firewallVM) {
     function createTree() {
         var index = null;
 
-        vm.whiteList.forEach(function(ip) {
-            vm.treeData.children.forEach(function(childIP) {
-                if (ip == childIP.name) {
-                    debugger;
-                    index = vm.treeData.children.indexOf(childIP);
-                    vm.treeData.children.splice(index, 1);
-                }
+        vm.whiteList.forEach(function (ip) {
+            vm.treeData.children.forEach(function (computerOnNetwork) {
+                computerOnNetwork.children.forEach(function (directionAcks) {
+                    directionAcks.children.forEach(function (childIP) {
+                        if (ip == childIP.name) {
+                            index = vm.treeData.children.indexOf(childIP);
+                            vm.treeData.children.splice(index, 1);
+                        }
+                    });
+                });
             });
         });
 

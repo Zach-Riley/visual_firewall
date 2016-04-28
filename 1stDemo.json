@@ -1,257 +1,104 @@
 {
-    "name": "router",
-    "children": [{
-        "name": "192.168.1.2",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]
-        }, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }, {
-        "name": "192.168.1.3",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]}, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }, {
-        "name": "192.168.1.4",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]}, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }, {
-        "name": "192.168.1.5",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]}, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }, {
-        "name": "192.168.1.6",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]}, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }, {
-        "name": "192.168.1.7",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]}, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }, {
-        "name": "192.168.1.8",
-        "children": [{
-            "name": "incoming",
-            "children": [{
-                "name": "incoming1",
-                "size": 3938
-            }, {
-                "name": "incoming2",
-                "size": 3812
-            }, {
-                "name": "incoming3",
-                "size": 6714
-            }, {
-                "name": "incoming4",
-                "size": 743
-            }]}, {
-            "name": "outgoing",
-            "children": [{
-                "name": "outgoing1",
-                "size": 3534
-            }, {
-                "name": "outgoing2",
-                "size": 5731
-            }, {
-                "name": "outgoing3",
-                "size": 7840
-            }, {
-                "name": "outgoing4",
-                "size": 5914
-            }, {
-                "name": "outgoing5",
-                "size": 3416
-            }]
-
-        }]
-    }]
+	"name": "router",
+	"children": [{
+	"name": "162.243.75.48",
+	"children":[{
+"name":"incoming",
+"children":
+[{
+	"date": "Apr 28 19:29:48",
+	"name": "222.186.34.186",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "112",
+	"protocol": "TCP",
+	"spt": "77",
+	"dpt": "9064",
+	"size": 40},{
+	"date": "Apr 28 19:30:14",
+	"name": "222.186.34.186",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "112",
+	"protocol": "TCP",
+	"spt": "77",
+	"dpt": "80",
+	"size": 40},{
+	"date": "Apr 28 19:30:39",
+	"name": "50.56.103.80",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "54",
+	"protocol": "TCP",
+	"spt": "60302",
+	"dpt": "22",
+	"size": 60},{
+	"date": "Apr 28 19:30:42",
+	"name": "222.186.34.186",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "112",
+	"protocol": "TCP",
+	"spt": "77",
+	"dpt": "9999",
+	"size": 40},{
+	"date": "Apr 28 19:30:42",
+	"name": "222.186.34.186",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "112",
+	"protocol": "TCP",
+	"spt": "77",
+	"dpt": "9999",
+	"size": 40},{
+	"date": "Apr 28 19:30:43",
+	"name": "129.110.241.79",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "54",
+	"protocol": "TCP",
+	"spt": "61555",
+	"dpt": "80",
+	"size": 64}]
+},{"name":"outgoing",
+"children":[{
+	"date": "Apr 28 19:30:02",
+	"name": "129.110.182.151",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "64",
+	"protocol": "TCP",
+	"spt": "35393",
+	"dpt": "80",
+	"size": 60},{
+	"date": "Apr 28 19:30:19",
+	"name": "8.8.8.8",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "64",
+	"protocol": "UDP",
+	"spt": "35977",
+	"dpt": "53",
+	"size": 36},{
+	"date": "Apr 28 19:30:19",
+	"name": "172.217.4.46",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "64",
+	"protocol": "TCP",
+	"spt": "40202",
+	"dpt": "80",
+	"size": 60},{
+	"date": "Apr 28 19:30:25",
+	"name": "31.13.76.68",
+	"tos": "0x00",
+	"prec": "0x00",
+	"ttl": "64",
+	"protocol": "TCP",
+	"spt": "55595",
+	"dpt": "80",
+	"size": 60
+	}]
+}]
+}]
 }

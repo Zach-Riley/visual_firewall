@@ -8,7 +8,8 @@ function visualFirewallIntroController($scope, $window, firewallVM) {
         whiteList: [],
         saveSpeed: saveSpeed,
         addIpToWhitelist: addIpToWhitelist,
-        checkSpeed: checkSpeed
+        checkSpeed: checkSpeed,
+        removeFromWhitelist: removeFromWhitelist
 
     };
 
@@ -38,8 +39,9 @@ function visualFirewallIntroController($scope, $window, firewallVM) {
             return false;
         }
     }
-
-    function getWhitelistedIPs() {
-       vm.whiteList = firewallVM.getWhitelist();
+    function removeFromWhitelist(IP) {
+        var index = vm.whiteList.indexOf(IP);
+        vm.whiteList.splice(index, 1);
+        firewallVM.removeFromWhitelist(IP);
     }
 }

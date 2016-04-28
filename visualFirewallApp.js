@@ -40,6 +40,10 @@ app.factory('firewallVM', function() {
     firewallVM.getSpeed = function() {
         return speed;
     }
+    firewallVM.removeFromWhitelist = function(IP) {
+        var index = whiteList.indexOf(IP);
+        whiteList.splice(index, 1);
+    }
 
     return firewallVM;
 

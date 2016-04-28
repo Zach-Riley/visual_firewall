@@ -44,12 +44,20 @@
 </style>
 
 <body>
-<!---<div id="tree-container" style="width: 75%"></div>-->
-<div>
-    <input ng-model="vm.speed" readonly type="text"/>
+<div class="col-md-1">
+    <label>Speed (in seconds): </label>
+    <input ng-model="vm.speed" type="text"/>
+    <label>Add a Whitelisted IP: </label>
+    <div>
+        <input type="text" ng-model="vm.whitelistIP" />
+        <button ng-click="vm.addIpToWhitelist()">Add to Whitelist</button>
+    </div>
     <label>Currently Whitelisted IPs</label>
     <ul>
-        <li ng-repeat="IP in vm.whiteList">{{IP}}</li>
+        <li ng-repeat="IP in vm.whiteList">{{IP}}<button class="btn btn-xs btn-danger" ng-click="vm.removeFromWhitelist(IP)">Delete from Whitelist</button></li>
     </ul>
 </div>
+<div class="col-md-1"></div>
+<div id="tree-container" class="col-md-10"></div>
+
 </body>

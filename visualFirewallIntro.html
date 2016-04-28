@@ -1,0 +1,30 @@
+﻿<!----<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="visualFirewallApp.js"></script>
+<script src="visualFirewallIntroController.js"></script>
+<body ng-app="visualFirewallApp" ng-controller="visualFirewallIntroController">-->
+
+    <h1>Visual Firewall</h1>
+        <div>
+            <label>Initial Speed (in seconds): </label>
+            <div>
+                <input type="text" ng-model="vm.speed" required/>
+                <button ng-click="vm.saveSpeed()">Set Speed</button>
+            </div>
+
+            <label>Add a Whitelisted IP: </label>
+            <div>
+                <input type="text" ng-model="vm.whitelistIP"/>
+                <button ng-click="vm.addIpToWhitelist()">Add to Whitelist</button>
+            </div>
+
+            <label>Currently Whitelisted IPs</label>
+            <ul>
+                <li ng-repeat="IP in vm.whiteList">{{IP}}</li>
+            </ul>
+        </div>
+        <button ui-sref="visualFirewall" ng-if="vm.checkSpeed()">Save and Continue</button>
+<!---</body>-->

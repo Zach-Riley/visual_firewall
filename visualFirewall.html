@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+  
+	.node {
+    cursor: pointer;
+  }
+
+  .overlay{
+      background-color:#EEE;
+  }
+   
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+   
+  .node text {
+    font-size:10px; 
+    font-family:sans-serif;
+  }
+   
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show{
+      display:block;
+  }
+
+  .ghostCircle, .activeDrag .ghostCircle{
+       display: none;
+  }
+
+</style>
+
+<body>
+<!---<div id="tree-container" style="width: 75%"></div>-->
+<div>
+    <input ng-model="vm.speed" readonly type="text"/>
+    <label>Currently Whitelisted IPs</label>
+    <ul>
+        <li ng-repeat="IP in vm.whiteList">{{IP}}</li>
+    </ul>
+</div>
+</body>

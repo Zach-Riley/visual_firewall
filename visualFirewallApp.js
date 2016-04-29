@@ -1,3 +1,4 @@
+//Application creation, allowing usage of global controllers, and the ui-routing for the individual pages
 var app = angular.module("visualFirewallApp", [
     'ui.router'
 ]).config([
@@ -21,6 +22,7 @@ var app = angular.module("visualFirewallApp", [
         });
 });
 
+//Factory to create the global object service used to pass data from Intro page to firewall page
 app.factory('firewallVM', function() {
 
     var speed = null;

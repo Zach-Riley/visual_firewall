@@ -1,4 +1,4 @@
-angular.module("visualFirewallApp").controller("visualFirewallController", visualFirewallController);
+ï»¿angular.module("visualFirewallApp").controller("visualFirewallController", visualFirewallController);
 
 function visualFirewallController($scope, firewallVM) {
     var vm =
@@ -17,16 +17,24 @@ function visualFirewallController($scope, firewallVM) {
 
     init();
 
+    //initial run
     function init() {
+
+        //Gathering global variables set on the previous page.
         $scope.vm = vm;
         vm.speed = firewallVM.getSpeed();
         vm.whiteList = firewallVM.getWhitelist();
-        vm.Json = "1stDemo.json";
-        vm.testJson = "2ndDemo.json";
 
+        //Hardcoded Json name, could be swapped out for a dynamic name if desired.
+        vm.Json = "1stDemo.json";
+
+        //create the initial tree
         createTreeJson(vm.Json);
+
+        //Waits based on speed for refreshing the tree
         WaitOnTrees();
     }
+    //For the add to whitelist button
     function addIpToWhitelist() {
         if (vm.whitelistIP != null) {
             vm.whiteList.push(vm.whitelistIP);
@@ -34,24 +42,25 @@ function visualFirewallController($scope, firewallVM) {
         }
 
     }
+    //For the delete button.
     function removeFromWhitelist(IP) {
         var index = vm.whiteList.indexOf(IP);
         vm.whiteList.splice(index, 1);
-        firewallVM.removeFromWhitelist(IP);
     }
+    //Waits an amount of time based on the speed variable before it updates the tree
     function WaitOnTrees() {
-        console.log("We ran.");
+        //console.log("We ran.");
         updateTreeJson(vm.Json);
-        setTimeout(WaitOnTrees, vm.speed*1000);
+        setTimeout(WaitOnTrees, vm.speed * 1000);
     }
-
+    //Gets tree data from the json
     function updateTreeJson(JsonThing) {
         treeJSON = d3.json(JsonThing, function (error, treeData) {
             vm.treeData = treeData;
             updateTree();
         });
     }
-
+    //gets initial data from first json
     function createTreeJson(JsonThing) {
         treeJSON = d3.json(JsonThing, function (error, treeData) {
             vm.treeData = treeData;
@@ -59,14 +68,16 @@ function visualFirewallController($scope, firewallVM) {
         });
     }
 
+    //Same functionality as create tree, but uses the SVG created in create tree instead of creating its own.
     function updateTree() {
         var index = null;
 
+        //This splices the IP out of the diagram if it is on the whitelist.
         vm.whiteList.forEach(function (ip) {
             vm.treeData.children.forEach(function (computerOnNetwork) {
                 computerOnNetwork.children.forEach(function (directionAcks) {
                     vm.directionAck = directionAcks;
-                    directionAcks.children.forEach(function (childIP){
+                    directionAcks.children.forEach(function (childIP) {
                         if (ip == childIP.name) {
                             index = vm.directionAck.children.indexOf(childIP);
                             vm.directionAck.children.splice(index, 1);
@@ -212,7 +223,7 @@ function visualFirewallController($scope, firewallVM) {
                 // d.y = (d.depth * 500); //500px per level.
             });
 
-            // Update the nodes¡­
+            // Update the nodesÂ¡Â­
             node = svgGroup.selectAll("g.node")
                 .data(nodes, function (d) {
                     return d.id || (d.id = ++i);
@@ -305,10 +316,17 @@ function visualFirewallController($scope, firewallVM) {
             nodeExit.select("text")
                 .style("fill-opacity", 0);
 
-            // Update the links¡­
+            // Update the linksÂ¡Â­
             var link = svgGroup.selectAll("path.link")
                 .data(links, function (d) {
                     return d.target.id;
+                })
+                //Dynamically setting the width of the links based on the size of traffic
+                .attr("stroke-width", function (d) {
+                    var strokeSize = (d.target.size) / 15 * 1.5;
+                    strokeSize = Math.min(strokeSize, 10);
+                    strokeSize = Math.max(strokeSize, 1.5);
+                    return strokeSize;
                 });
 
             // Enter any new links at the parent's previous position.
@@ -362,11 +380,14 @@ function visualFirewallController($scope, firewallVM) {
 
         // Layout the tree initially and center on the root node.
         update(root);
+        //centerNode(root);
     }
-    
+
+    //Creates an SVG and all the listeners associated with it for zooming and panning.
     function createTree() {
         var index = null;
 
+        //Splicing the IPs on the whitelist out.
         vm.whiteList.forEach(function (ip) {
             vm.treeData.children.forEach(function (computerOnNetwork) {
                 computerOnNetwork.children.forEach(function (directionAcks) {
@@ -410,7 +431,6 @@ function visualFirewallController($scope, firewallVM) {
 
         // A recursive helper function for performing some setup by walking through all nodes
         function visit(parent, visitFn, childrenFn) {
-            debugger;
             if (!parent) return;
 
             visitFn(parent);
@@ -423,7 +443,7 @@ function visualFirewallController($scope, firewallVM) {
                 }
             }
         }
-        
+
         // Call visit function to establish maxLabelLength
         visit(vm.treeData, function (d) {
             totalNodes++;
@@ -621,7 +641,7 @@ function visualFirewallController($scope, firewallVM) {
                 // d.y = (d.depth * 500); //500px per level.
             });
 
-            // Update the nodes¡­
+            // Update the nodesÂ¡Â­
             node = svgGroup.selectAll("g.node")
                 .data(nodes, function (d) {
                     return d.id || (d.id = ++i);
@@ -714,7 +734,7 @@ function visualFirewallController($scope, firewallVM) {
             nodeExit.select("text")
                 .style("fill-opacity", 0);
 
-            // Update the links¡­
+            // Update the linksÂ¡Â­
             var link = svgGroup.selectAll("path.link")
                 .data(links, function (d) {
                     return d.target.id;
@@ -774,5 +794,5 @@ function visualFirewallController($scope, firewallVM) {
         update(root);
         centerNode(root);
     }
-            
+
 }

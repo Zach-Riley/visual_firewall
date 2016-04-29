@@ -1,20 +1,34 @@
-﻿    <h1>Visual Firewall</h1>
+﻿    
+<h1>Visual Firewall Intro Page</h1>
+<h3>You must set a speed to continue, and you must add a whitelist IP before it will show up as whitelisted.</h3>
+
+<br/>
+<div>
+    <div class="col-md-6">
+        <!--Speed to update the tree at-->
+        <label>Initial Update Speed (in seconds): </label>
         <div>
-            <label>Initial Speed (in seconds): </label>
-            <div>
-                <input type="text" ng-model="vm.speed" required/>
-                <button ng-click="vm.saveSpeed()">Set Speed</button>
-            </div>
-
-            <label>Add a Whitelisted IP: </label>
-            <div>
-                <input type="text" ng-model="vm.whitelistIP"/>
-                <button ng-click="vm.addIpToWhitelist()">Add to Whitelist</button>
-            </div>
-
-            <label>Currently Whitelisted IPs</label>
-            <ul>
-                <li ng-repeat="IP in vm.whiteList">{{IP}}<button class="btn btn-xs btn-danger" ng-click="vm.removeFromWhitelist(IP)">Delete from Whitelist</button></li>
-            </ul>
+            <input type="text" ng-model="vm.speed" required/>
+            <button ng-click="vm.saveSpeed()">Set Speed</button>
         </div>
-        <button ui-sref="visualFirewall" ng-if="vm.checkSpeed()">Save and Continue</button>
+    </div>
+    <div class="col-md-6">
+        <!--Input for Whitelisted IPs-->
+        <label>Add a Whitelisted IP: </label>
+        <div>
+            <input type="text" ng-model="vm.whitelistIP"/>
+            <button ng-click="vm.addIpToWhitelist()">Add to Whitelist</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+        <label>Currently Whitelisted IPs</label>
+        <ul>
+            <li ng-repeat="IP in vm.whiteList">{{IP}} <button class="btn btn-xs btn-danger" ng-click="vm.removeFromWhitelist(IP)">Delete from Whitelist</button></li>
+        </ul>
+    </div>
+</div>
+<!--This button will not appear unless speed is not null-->
+<div class="col-md-2"><button ui-sref="visualFirewall" ng-if="vm.checkSpeed()">Save and Continue</button></div>
+        

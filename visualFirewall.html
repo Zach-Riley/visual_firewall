@@ -13,7 +13,6 @@
   .node circle {
     fill: #fff;
     stroke: steelblue;
-    stroke-width: 1.5px;
   }
    
   .node text {
@@ -24,13 +23,11 @@
   .link {
     fill: none;
     stroke: #ccc;
-    stroke-width: 1.5px;
   }
 
   .templink {
     fill: none;
     stroke: red;
-    stroke-width: 3px;
   }
 
   .ghostCircle.show{
@@ -44,12 +41,13 @@
 </style>
 
 <body>
-<div class="col-md-1">
+<!--This is where the sidebar options are for speed, whitelist additions and the whitelist itself.-->
+<div class="col-md-1" style="display: inline-block">
     <label>Speed (in seconds): </label>
     <input ng-model="vm.speed" type="text"/>
     <label>Add a Whitelisted IP: </label>
     <div>
-        <input type="text" ng-model="vm.whitelistIP" />
+        <input type="text" ng-model="vm.whitelistIP"/>
         <button ng-click="vm.addIpToWhitelist()">Add to Whitelist</button>
     </div>
     <label>Currently Whitelisted IPs</label>
@@ -58,6 +56,7 @@
     </ul>
 </div>
 <div class="col-md-1"></div>
+<!--This is the container holding the d3 object-->
 <div id="tree-container" class="col-md-10"></div>
 
 </body>

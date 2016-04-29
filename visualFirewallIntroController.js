@@ -20,10 +20,12 @@ function visualFirewallIntroController($scope, $window, firewallVM) {
         $scope.vm = vm;
     }
 
+    //Saving speed to the Service or App.
     function saveSpeed() {
         firewallVM.setSpeed(vm.speed);
     }
 
+    //Pushing the IPs to the global list.
     function addIpToWhitelist() {
         if (vm.whitelistIP != null) {
             firewallVM.addIpToWhitelist(vm.whitelistIP);
@@ -32,6 +34,7 @@ function visualFirewallIntroController($scope, $window, firewallVM) {
         }
         
     }
+    //Function to make sure you cannot continue with a null speed.
     function checkSpeed() {
         if (firewallVM.getSpeed() != null) {
             return true;
@@ -39,6 +42,7 @@ function visualFirewallIntroController($scope, $window, firewallVM) {
             return false;
         }
     }
+    //Function to delete from whitelist IP table.
     function removeFromWhitelist(IP) {
         var index = vm.whiteList.indexOf(IP);
         vm.whiteList.splice(index, 1);

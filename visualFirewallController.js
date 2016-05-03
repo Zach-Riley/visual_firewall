@@ -253,22 +253,6 @@ function visualFirewallController($scope, firewallVM) {
                     return d.children || d._children ? "end" : "start";
                 })
                 .text(function (d) {
-					var name = null;
-					
-					if(d.parent.name == "incoming"){
-						name  = d.name + ":" + d.dpt;
-						if(d.geo){
-							name = name + " - " + d.geo;
-						}
-						return name;
-					}
-					else if(d.parent.name == "outgoing"){
-						name  = d.name + ":" + d.spt;
-						if(d.geo){
-							name = name + " - " + d.geo;
-						}
-						return name;
-					}
                     return d.name;
 
                 })
@@ -297,6 +281,23 @@ function visualFirewallController($scope, firewallVM) {
                     return d.children || d._children ? "end" : "start";
                 })
                 .text(function (d) {
+                	var name = null;
+					if(d.name!="router"){
+					if(d.parent.name == "incoming"){
+						name  = d.name + ":" + d.dpt;
+						if(d.geo){
+							name = name + " - " + d.geo;
+						}
+						return name;
+					}
+					else if(d.parent.name == "outgoing"){
+						name  = d.name + ":" + d.spt;
+						if(d.geo){
+							name = name + " - " + d.geo;
+						}
+						return name;
+					}
+					}
                     return d.name;
                 });
 

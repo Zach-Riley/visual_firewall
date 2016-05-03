@@ -327,7 +327,19 @@ function visualFirewallController($scope, firewallVM) {
                     strokeSize = Math.min(strokeSize, 10);
                     strokeSize = Math.max(strokeSize, 1.5);
                     return strokeSize;
-                });
+                })
+				.attr("stroke", function (d)){
+					if((d.target.size) / 15 * 1.5 >= 10){
+						return "red";
+					}else if((d.target.size) / 15 * 1.5 <= 1.5){
+						return "green";
+					}else{
+						return "#ccc";
+					}
+					
+					
+					
+				};
 
             // Enter any new links at the parent's previous position.
             link.enter().insert("path", "g")

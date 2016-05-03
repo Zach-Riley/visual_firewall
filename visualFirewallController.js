@@ -1,4 +1,4 @@
-﻿angular.module("visualFirewallApp").controller("visualFirewallController", visualFirewallController);
+﻿﻿angular.module("visualFirewallApp").controller("visualFirewallController", visualFirewallController);
 
 function visualFirewallController($scope, firewallVM) {
     var vm =
@@ -10,6 +10,7 @@ function visualFirewallController($scope, firewallVM) {
         testJson: null,
         treeData: null,
         directionAck: null,
+		pause: false,
         addIpToWhitelist: addIpToWhitelist,
         removeFromWhitelist: removeFromWhitelist
 
@@ -49,7 +50,9 @@ function visualFirewallController($scope, firewallVM) {
     }
     //Waits an amount of time based on the speed variable before it updates the tree
     function WaitOnTrees() {
-        updateTreeJson(vm.Json);
+		if(!vm.pause){
+			updateTreeJson(vm.Json);
+		}
         setTimeout(WaitOnTrees, vm.speed * 1000);
     }
     //Gets tree data from the json
@@ -624,7 +627,7 @@ function visualFirewallController($scope, firewallVM) {
                 d.children = d._children;
                 d._children = null;
             } else {
-                console.log("pcap data goes here");
+                window.open("pcap.har",'_blank');
             }
             return d;
         }

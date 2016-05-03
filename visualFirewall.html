@@ -22,6 +22,7 @@
    
   .link {
     fill: none;
+    
   }
 
   .templink {
@@ -53,6 +54,8 @@
     <ul>
         <li ng-repeat="IP in vm.whiteList">{{IP}}<button class="btn btn-xs btn-danger" ng-click="vm.removeFromWhitelist(IP)">Delete from Whitelist</button></li>
     </ul>
+	<button class="btn btn-xs" ng-if="vm.pause" ng-click="vm.pause = false"><i class="fa fa-play"></i></button>
+	<button class="btn btn-xs"ng-if="!vm.pause" ng-click="vm.pause = true"><i class="fa fa-pause"></i></button>
 </div>
 <div class="col-md-1"></div>
 <!--This is the container holding the d3 object-->

@@ -97,7 +97,7 @@ function visualFirewallController($scope, firewallVM) {
         var panBoundary = 20; // Within 20px from edges will pan when dragging.
         // Misc. variables
         var i = 0;
-        var duration = 750;
+        var duration = 0;
         var root;
 
         // size of the diagram
@@ -168,7 +168,7 @@ function visualFirewallController($scope, firewallVM) {
         }
 
         // Sort the tree initially incase the JSON isn't in a sorted order.
-        sortTree();
+        //sortTree();
 
         function zoom() {
             svgGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");

@@ -355,7 +355,7 @@ function visualFirewallController($scope, firewallVM) {
 					
 					
 					
-				};
+				});
 
             // Enter any new links at the parent's previous position.
             link.enter().insert("path", "g")

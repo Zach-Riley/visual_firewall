@@ -26,7 +26,7 @@ function visualFirewallController($scope, firewallVM) {
         vm.whiteList = firewallVM.getWhitelist();
 
         //Hardcoded Json name, could be swapped out for a dynamic name if desired.
-        vm.Json = "1stDemo.json";
+        vm.Json = "Data.json";
 
         //create the initial tree
         createTreeJson(vm.Json);
@@ -49,7 +49,6 @@ function visualFirewallController($scope, firewallVM) {
     }
     //Waits an amount of time based on the speed variable before it updates the tree
     function WaitOnTrees() {
-        //console.log("We ran.");
         updateTreeJson(vm.Json);
         setTimeout(WaitOnTrees, vm.speed * 1000);
     }
@@ -122,7 +121,7 @@ function visualFirewallController($scope, firewallVM) {
                 d.children = d._children;
                 d._children = null;
             } else {
-                console.log("pcap data goes here");
+                window.open("pcap.har",'_blank');
             }
             return d;
         }
@@ -254,7 +253,24 @@ function visualFirewallController($scope, firewallVM) {
                     return d.children || d._children ? "end" : "start";
                 })
                 .text(function (d) {
+					var name = null;
+					
+					if(d.parent.name == "incoming"){
+						name  = d.name + ":" + d.dpt;
+						if(d.geo){
+							name = name + " - " + d.geo;
+						}
+						return name;
+					}
+					else if(d.parent.name == "outgoing"){
+						name  = d.name + ":" + d.spt;
+						if(d.geo){
+							name = name + " - " + d.geo;
+						}
+						return name;
+					}
                     return d.name;
+
                 })
                 .style("fill-opacity", 0);
 

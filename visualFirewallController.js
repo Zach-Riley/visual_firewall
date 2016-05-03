@@ -345,7 +345,7 @@ function visualFirewallController($scope, firewallVM) {
                     strokeSize = Math.max(strokeSize, 1.5);
                     return strokeSize;
                 })
-				.attr("stroke", function (d)){
+				.attr("stroke", function (d){
 					if((d.target.size) / 15 * 1.5 >= 10){
 						return "red";
 					}else if((d.target.size) / 15 * 1.5 <= 1.5){
